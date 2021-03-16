@@ -33,13 +33,19 @@ int main(int argc, char**argv) {
 	ultimo = (tamanhoArquivo/sizeof(Endereco))-1;
 	meio = (primeiro+ultimo)/2;
 
-	while(ftell(f) != posicao)	{
+	do {
 		posicao = ftell(f);
 		fseek(f, meio * sizeof(Endereco), SEEK_SET);	
 		fread(&e,sizeof(Endereco),1,f);
 
+		if(posicao == ftell(f)){
+			printf("\nCEP não encontrado.\n\n");
+			break;
+		}
+
 		if(strncmp(argv[1], e.cep, 8) == 0) {
-			printf("Achado: \n%.72s\n%.72s\n%.72s\n%.72s\n%.2s\n%.8s\n", e.logradouro, e.bairro, e.cidade, e.uf, e.sigla, e.cep);
+			printf("\nCEP Encontrado: \n\n%.72s\n%.72s\n%.72s\n%.72s\n%.2s\n%.8s\n\n", e.logradouro, e.bairro, e.cidade, e.uf, e.sigla, e.cep);
+			break;
 		} else if(strncmp(argv[1], e.cep, 8) < 0){
 			ultimo = meio;
 			meio = (primeiro+ultimo)/2;
@@ -47,7 +53,7 @@ int main(int argc, char**argv) {
 			primeiro = meio;
 			meio = (primeiro+ultimo)/2;
 		}
-	}
+	} while(ftell(f) != posicao);
 
 	fclose(f);
 	return 0;
