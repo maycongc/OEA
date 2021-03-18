@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 typedef struct _Endereco Endereco;
 
@@ -16,22 +17,35 @@ struct _Endereco {
 int main(int argc, char**argv) {
 	FILE *f;
 	Endereco e;
-	long tamanhoArquivo, posicao = -1, primeiro, ultimo, meio;
+	long tamanhoArquivo, posicao = -1, total, primeiro, ultimo, meio;
+	int buscas = 0;
 
 	if(argc != 2)	{
 		fprintf(stderr, "USO: %s [CEP]", argv[0]);
 		return 1;
 	}
 
-	f = fopen("cep_ordenado.dat","r");
+	f = fopen("cep_ordenado2.dat","r");
 	fseek(f,0,SEEK_END);
 
 	tamanhoArquivo = ftell(f);
 	rewind(f); // fseek(f,0,SEEK_SET);
 
+	total = tamanhoArquivo/sizeof(Endereco);
 	primeiro = 0;
-	ultimo = (tamanhoArquivo/sizeof(Endereco))-1;
+	ultimo = total-1;
 	meio = (primeiro+ultimo)/2;
+
+	printf("Temos um total de %ld registros", total);
+	float y = log2(total);
+	int x;
+	
+	if (y > (int)y)
+		x = y+1;
+	else
+		x = y;
+
+	printf(", no pior caso realizaremos %d buscas.\n", x);
 
 	do {
 		posicao = ftell(f);
@@ -43,8 +57,11 @@ int main(int argc, char**argv) {
 			break;
 		}
 
+		buscas = buscas + 1;
+
 		if(strncmp(argv[1], e.cep, 8) == 0) {
 			printf("\nCEP Encontrado: \n\n%.72s\n%.72s\n%.72s\n%.72s\n%.2s\n%.8s\n\n", e.logradouro, e.bairro, e.cidade, e.uf, e.sigla, e.cep);
+			printf("Foram feitas %d buscas", buscas);
 			break;
 		} else if(strncmp(argv[1], e.cep, 8) < 0){
 			ultimo = meio;
