@@ -37,8 +37,6 @@ const mergeBlocks = async () => {
   }
 
   await fs.writeFile(resolve(__dirname, '..', `cepOrdenado.dat`), data, 'binary')
-
-  console.log(cepOrd)
 }
 
 module.exports = mergeBlocks
