@@ -19,11 +19,13 @@ $ git clone https://github.com/maycongc/busca-binaria-c
 # 2. Acesse o diretório
 $ cd busca-binaria-c
 
-# 3. Compile o algoritmo para criar o executável 
+# 3. Mova o arquivo de CEPs para o repositório com o nome "cep.dat"
+
+# 4. Compile o algoritmo para criar o executável 
 $ gcc ./CepBinario.c -o CepBinario
 
-# 4. Execute
+# 5. Execute
 $ ./CepBinario.exe [CEP-A-BUSCAR]
 ```
 
-> CEPs válidos para busca podem ser encontrados dentro do arquivo `cep_ordenado.dat`
+> O arquivo de CEPs pode ser baixado aqui: [link](https://github.com/maycongc/merge-sort-ceps/releases/download/v1/cep.dat)
