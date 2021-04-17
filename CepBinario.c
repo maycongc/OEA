@@ -25,7 +25,7 @@ int main(int argc, char**argv) {
 		return 1;
 	}
 
-	f = fopen("cep_ordenado2.dat","r");
+	f = fopen("cep.dat","r");
 	fseek(f,0,SEEK_END);
 
 	tamanhoArquivo = ftell(f);
