@@ -1,18 +1,4 @@
-const { resolve } = require('path')
-const fs = require('fs/promises')
-
-let n = 1;
-
-const writePart = async (array) => {
-  const part = mergeSort(array, 6);
-
-  let data = ''
-  for(let i = 0; i < part.length; i++) {
-    data += `${part[i].logradouro}${part[i].bairro}${part[i].cidade}${part[i].uf}${part[i].sigla}${part[i].cep}${part[i].lixo}`
-  }
-
-  await fs.writeFile(resolve(__dirname, '..', `cep-part${n++}.dat`), data, 'binary')
-}
+const write = require('./writeData')
 
 const merge = (left, right) => {
   let arr = []
@@ -29,9 +15,11 @@ const merge = (left, right) => {
   return [ ...arr, ...left, ...right ]
 }
 
+let n = 1;
+
 const mergeSort = (array, i) => {
   if(i === 5) {
-    writePart(array)
+    write(mergeSort(array, 6), n++)
     return []
   }
 
@@ -47,6 +35,5 @@ const mergeSort = (array, i) => {
 
 module.exports = {
   mergeSort,
-  merge,
-  writePart
+  merge
 }

@@ -10,7 +10,6 @@ module.exports = async (dir) => {
   let pos = 0
 
   for(let i = 0; i < total; i++) {
-
     let x = {}
   
     await fd.read(buffer, 0, 72, pos)
