@@ -3,8 +3,6 @@
 ## 📝 Questão 01
 Escreva um programa na sua linguagem de programação de preferência que conte o número de palavras e linhas de um arquivo texto, com o nome passado pelo argumento do comando de linha.
 
-<hr/>
-
 ## 🤔 como usar:
 
 > Antes de tudo garantir que o sistema possui o NodeJS instalado.
