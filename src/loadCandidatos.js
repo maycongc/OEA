@@ -38,7 +38,7 @@ module.exports = async (dir) => {
   
     await fd.read(buffer, 0, 1, pos)
     x.opcaoQuadro = buffer.toString('utf8', 0, 1)
-    pos += 1
+    pos += 2
   
     candidatos[i] = x
   }

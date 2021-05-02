@@ -11,6 +11,8 @@ const verifyCandidatos = (candidatos) => {
       candidatos2.push(candidatoAntigo)
       candidatoAntigo = candidatos[i]
     }
+
+    if(i === candidatos.length - 1) candidatos2.push(candidatoAntigo)
   }
 
   return candidatos2
