@@ -19,3 +19,4 @@ $ cd OEA-LA-Q03
 # Executar
 $ node ./src/index.js
 ```
+> Limitação: Não funciona se houver registros com cpfs idênticos
