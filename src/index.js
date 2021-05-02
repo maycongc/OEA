@@ -4,7 +4,7 @@ const load = require('./load')
 const main = async () => {
 
   const dir = resolve(__dirname, '..', process.argv[2])
-  console.log('Lendo o arquivo: '+ dir)
+  console.log('Lendo o arquivo: ' + dir + '\n')
   const arquivo = await load(dir)
 
   const linhas = arquivo.split('\n'); 
