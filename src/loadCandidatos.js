@@ -6,7 +6,7 @@ module.exports = async (dir) => {
 
   let candidatos = [];
   let buffer = Buffer.alloc(40)
-  let total = Math.floor(stats.size / 92)
+  let total = Math.floor(stats.size / 93)
   let pos = 0
 
   for(let i = 0; i < total; i++) {
