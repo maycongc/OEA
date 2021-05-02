@@ -20,3 +20,5 @@ $ cd OEA-LA-Q01
 # <NOME-DO-ARQUIVO> Exemplos: texto.txt texto 
 $ node ./src/index.js <NOME-DO-ARQUIVO>
 ```
+
+> Limitação: Só funciona para arquivos utilizando quebra de linha LF = \n
