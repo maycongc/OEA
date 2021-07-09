@@ -4,6 +4,8 @@
   ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 </div>
 
+### Primeiro trabalho de Organização de Estrutura de Arquivos - Busca binaria utilizando argumento em linha de comando. 💻
+
 # 🤔 Como usar
 
 > Antes de tudo garanta que seu sistema tenha um compilador C/C++ instalado.
